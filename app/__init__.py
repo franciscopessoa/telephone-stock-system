@@ -11,3 +11,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 ma = Marshmallow(app)
+
+from .models import user
+from .models import phone_number
+from .routes import routes
