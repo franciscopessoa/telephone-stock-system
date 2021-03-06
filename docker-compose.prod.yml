@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    command: FLASK_ENV=production
+    command: FLASK_ENV=app
+    command: FLASK_ENV=run.py
+    command: flask run --host=0.0.0.0
+    ports:
+      - 5000:5000
