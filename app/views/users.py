@@ -1,6 +1,6 @@
 from app import db
 from flask import request
-from ..models.users import Users, UsersSchema
+from ..models.user import User, UserSchema
 from flask_sieve import Sieve, Validator
 from sqlalchemy.exc import SQLAlchemyError
 from app.utils import formatResponse
@@ -29,19 +29,19 @@ def store():
         body = request.get_json(force=True)
 
         try:
-            usernameExists = Users.query.filter_by(username=body['username']).first()
+            usernameExists = User.query.filter_by(username=body['username']).first()
             if usernameExists:
                 return formatResponse("", "Este username já está sendo utilizado", 400)
 
-            emailExists = Users.query.filter_by(email=body['email']).first()
+            emailExists = User.query.filter_by(email=body['email']).first()
             if emailExists:
                 return formatResponse("", "Este email já está sendo utilizado", 400)
 
-            user = Users(**body)
+            user = User(**body)
             user.hash_password()
             db.session.add(user)
             db.session.commit()
-            user_schema = UsersSchema()
+            user_schema = UserSchema()
             result = user_schema.dump(user)
             del result['password']
             return formatResponse(result, "Usuário cadastrado com sucesso")
