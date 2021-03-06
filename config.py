@@ -1,3 +1,5 @@
+import os
+
 SQLALCHEMY_DATABASE_URI = 'sqlite:///database/storage.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
