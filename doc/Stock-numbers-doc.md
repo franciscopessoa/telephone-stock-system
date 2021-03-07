@@ -20,7 +20,7 @@ Documentação API's - Estoque de números
 `Headers:`	
 Authorization : Bearer ${token} 
 > **Observações:** 
-	  - O ${token} de acesso para as apis pode ser adquirido na etapa 2 (login);
+	  - O ${token} de acesso para as apis pode ser adquirido na etapa 2 (login), ou usando o usuário padrão criado no ambiente de desenvolvimento: `admin : usH5hRwxiZ`
 	  - Documentação focada nas respostas de sucesso das APIs, em caso de erro será apenas retornado no campo "message" ou "data" (em casos de erros multiplos) a descrição correspondente.
 ---
 
